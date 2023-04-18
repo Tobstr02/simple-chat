@@ -45,7 +45,7 @@ function onState(data) {
     let p = document.createElement("p");
     if (data.active === true) {
         p.innerHTML = `<strong style="color: green">${data.username} ist beigetreten!</strong>`;
-    } else if (data.active === false){
+    } else if (data.active === false) {
         p.innerHTML = `<strong style="color: red">${data.username} hat verlassen!</strong>`;
     }
     chatDiv.append(p);
