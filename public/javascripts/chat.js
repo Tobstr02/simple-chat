@@ -4,8 +4,27 @@
 let name;
 
 document.addEventListener("DOMContentLoaded", () => {
-    name = prompt("Gib deinen Namen ein:")
+    name = getCookie("username");
+    if(!name)
+    {
+        name = prompt("Gib deinen Namen ein:");
+        if(!name)
+            return window.location.reload();
+
+        document.cookie = `username=${name}`;
+    }
+    else
+    {
+        if(!confirm("Du bist eingeloggt als " + name + "\nKorrekt?"))
+        {
+            document.cookie = `username=; expires=Thu, 01 Jan 1970 00:00:00 UTC`;
+            window.location.reload();
+        }
+    }
+
 });
+
+
 
 /**
  * Sobald ein Chat hereinkommt
