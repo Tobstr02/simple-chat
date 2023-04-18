@@ -26,7 +26,7 @@ var server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 
-wsApp.listen()
+wsApp.listen(3005);
 
 server.listen(port);
 server.on('error', onError);

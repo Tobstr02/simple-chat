@@ -5,8 +5,10 @@ let connected = false;
 
 function connect()
 {
+	const url = (window.location.protocol === "http:" ? "ws://" : "wss://") + window.location.hostname + ":3005";
+
 	websocket = new WebSocket(
-		"wss://www.example.com/socketserver"
+		url
 	);
 
 	websocket.onopen = (event) => {
@@ -14,6 +16,8 @@ function connect()
 	}
 	websocket.onclose = (event) => {
 		connected = false;
+		alert("Verbindung verloren!\nWiederaufbau läuft...");
+		connect();
 	}
 	websocket.onmessage = (event) => {
 		try {
@@ -37,4 +41,5 @@ function connect()
 
 }
 
+connect();
 
