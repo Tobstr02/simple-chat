@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 /**
  * Sobald ein Chat hereinkommt
- * @param data {username: string, message: string}
+ * @param data {{message: string, username: username}}
  */
 function onChat(data) {
     // todo Hier divs zur chatbox hinzufügen mit "Name: Message"
