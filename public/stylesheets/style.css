@@ -13,7 +13,8 @@ h1 {
 #chat-box {
   border-style: solid;
   background-color: white;
-  height: 75%;
+  bottom: 14%;
+  top: 10%;
   width: 90%;
   left: 5%;
   position: absolute;
