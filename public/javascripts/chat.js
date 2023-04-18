@@ -6,7 +6,7 @@
 
 /**
  * Sobald ein Chat hereinkommt
- * @param data {username: string, message: string}
+ * @param data {{message: string, username: username}}
  */
 function onChat(data)
 {
