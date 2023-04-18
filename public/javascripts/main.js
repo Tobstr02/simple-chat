@@ -68,6 +68,7 @@ function blank()
 	if(isBlank)
 	{
 		document.getElementById("blackout").remove();
+		document.title = "SimpleChat";
 		isBlank = false;
 	}
 	else
@@ -87,6 +88,7 @@ function blank()
 		blackout.style.zIndex = "999";
 
 		document.body.append(blackout);
+		document.title = "Problem loading this page...";
 		isBlank = true;
 	}
 }
