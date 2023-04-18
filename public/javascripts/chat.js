@@ -13,15 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         document.cookie = `username=${name}`;
     }
-    else
-    {
-        if(!confirm("Du bist eingeloggt als " + name + "\nKorrekt?"))
-        {
-            document.cookie = `username=; expires=Thu, 01 Jan 1970 00:00:00 UTC`;
-            window.location.reload();
-        }
-    }
-
 });
 
 
@@ -41,7 +32,8 @@ function onChat(data) {
 let sendButton = document.getElementById("senden");
 let eingabeBox = document.getElementById("eingabe");
 sendButton.addEventListener("click", () => {
-    sendChat(name, eingabeBox.innerText);
+    sendChat(name, eingabeBox.value); //sry my bad war doch .value
+    eingabeBox.value = "";
 });
 
 
@@ -51,7 +43,7 @@ sendButton.addEventListener("click", () => {
  * @param message {string}
  */
 function sendChat(username, message) {
-    websocket.send(JSON.stringify({event: "chat", username: username, message: message}));
+    websocket.send(JSON.stringify({event: "message", username: username, message: message}));
 }
 
 
