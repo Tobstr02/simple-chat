@@ -26,7 +26,7 @@ app.ws('/', function(ws, req) {
 		{}
 	});
 	debug('New client');
-	ws.send(JSON.stringify({"username": "SYSTEM", message: "Willkommen!"}))
+	ws.send(JSON.stringify({"event": "message", "username": "SYSTEM", message: "Willkommen bitte lege zunächst einen Benutzernamen fest!"}))
 });
 
 
