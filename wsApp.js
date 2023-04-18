@@ -11,12 +11,22 @@ app.get('/', function(req, res, next){
 	res.end();
 });
 
+
 app.ws('/', function(ws, req) {
+
 	ws.on('message', function(msg) {
-		debug(msg, ws);
-		ws.send("HI");
+		debug(msg);
+
+		try {
+			let data = JSON.parse(msg);
+			expressWs.clients.forEach( (client) => {
+				client.send(JSON.stringify(data));
+			} )
+		} catch( e )
+		{}
 	});
-	debug('socket', req);
+	debug('New client');
+	ws.send(JSON.stringify({"username": "SYSTEM", message: "Willkommen!"}))
 });
 
 
