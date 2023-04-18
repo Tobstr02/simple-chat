@@ -62,5 +62,40 @@ function getCookie(cname) {
 	return "";
 }
 
+let isBlank = false;
+function blank()
+{
+	if(isBlank)
+	{
+		document.getElementById("blackout").remove();
+		isBlank = false;
+	}
+	else
+	{
+		let blackout = document.createElement("div");
+		blackout.id = "blackout";
+		blackout.style.position = "fixed";
+		blackout.style.top = "0";
+		blackout.style.bottom = "0";
+		blackout.style.left = "0";
+		blackout.style.right = "0";
+		blackout.style.backgroundColor = "#f7f7f7";
+		let img = document.createElement("img");
+		img.src = "/images/blackout.jpg";
+		img.classList.add("imgCenter");
+		blackout.append(img);
+		blackout.style.zIndex = "999";
+
+		document.body.append(blackout);
+		isBlank = true;
+	}
+}
+document.body.onkeyup = (event) => {
+	if(event.key === "b")
+	{
+		blank();
+	}
+}
+
 connect();
 
