@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
  * @param data {{message: string, username: username}}
  */
 let chatDiv = document.getElementById("chat-box");
+
 function onChat(data) {
     // todo Hier divs zur chatbox hinzufügen mit "Name: Message"
     let p = document.createElement("p");
@@ -32,7 +33,7 @@ sendButton.addEventListener("click", () => {
  * @param message {string}
  */
 function sendChat(username, message) {
-    websocket.send( JSON.stringify({event: "chat", username: username, message: message}) );
+    websocket.send(JSON.stringify({event: "chat", username: username, message: message}));
 }
 
 
@@ -40,6 +41,13 @@ function sendChat(username, message) {
  * Sobald sich ein active state eines users ändert
  * @param data {{active: boolean, username: string}}
  */
+
 function onState(data) {
-    // todo Hier divs zur chatbox vllt andere Farbe mit "Name hat verlassen" (bei active=false) bzw. "Name hat betreten" (bei active=true)
+    let p = document.createElement("p");
+    if (data.active === true) {
+        p.innerHTML = `<strong style="color: green">${data.username} ist beigetreten!</strong>`;
+    } else if (data.active === false){
+        p.innerHTML = `<strong style="color: red">${data.username} hat verlassen!</strong>`;
+    }
+    chatDiv.append(p);
 }
