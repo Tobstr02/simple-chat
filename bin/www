@@ -5,6 +5,7 @@
  */
 
 var app = require('../app');
+var wsApp = require('../wsApp');
 var debug = require('debug')('simple-chat:server');
 var http = require('http');
 
@@ -24,6 +25,8 @@ var server = http.createServer(app);
 /**
  * Listen on provided port, on all network interfaces.
  */
+
+wsApp.listen()
 
 server.listen(port);
 server.on('error', onError);
