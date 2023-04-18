@@ -18,6 +18,19 @@ h1 {
   width: 90%;
   left: 5%;
   position: absolute;
+  overflow-y: auto;
+  font-size: 1.2em;
+}
+
+#chat-table{
+  width: 100%;
+}
+
+.table-name{
+  width: 10%;
+}
+.table-message{
+  width: 90%;
 }
 
 #eingabe {

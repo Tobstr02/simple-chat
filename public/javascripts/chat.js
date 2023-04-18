@@ -16,17 +16,23 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-
+let chatDiv = document.getElementById("chat-box");
+let chatTableDiv = document.getElementById("chat-table")
 /**
  * Sobald ein Chat hereinkommt
  * @param data {{message: string, username: username}}
  */
-let chatDiv = document.getElementById("chat-box");
-
 function onChat(data) {
-    let p = document.createElement("p");
-    p.innerHTML = `<strong>${data.username}</strong>: ${data.message}`;
-    chatDiv.append(p);
+    let tr = document.createElement("tr");
+    let tdName = document.createElement("td");
+    let tdMessage = document.createElement("td");
+    tdName.classList.add("table-name");
+    tdMessage.classList.add("table-message");
+    tr.append(tdName, tdMessage);
+    tdName.innerHTML = `<strong>${data.username}</strong>`;
+    tdMessage.innerHTML = data.message.replaceAll("\n", "<br>");
+    chatTableDiv.append(tr);
+    chatDiv.scrollTop = chatDiv.scrollHeight;
 }
 
 let sendButton = document.getElementById("senden");
@@ -35,6 +41,15 @@ sendButton.addEventListener("click", () => {
     sendChat(name, eingabeBox.value); //sry my bad war doch .value
     eingabeBox.value = "";
 });
+
+eingabeBox.onkeyup = (event) => {
+    console.log(event.key)
+    if(event.key.toLowerCase() === "enter" && !event.shiftKey)
+    {
+        sendChat(name, eingabeBox.value);
+        eingabeBox.value = "";
+    }
+}
 
 
 /**
