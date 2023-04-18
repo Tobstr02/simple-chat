@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
 let chatDiv = document.getElementById("chat-box");
 
 function onChat(data) {
-    // todo Hier divs zur chatbox hinzufügen mit "Name: Message"
     let p = document.createElement("p");
     p.innerHTML = `<strong>${data.username}</strong>: ${data.message}`;
     chatDiv.append(p);
