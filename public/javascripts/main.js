@@ -13,13 +13,14 @@ function connect()
 
 	websocket.onopen = (event) => {
 		connected = true;
+		setTimeout( () => onChat({username: "<i>SYSTEM</i>", message: "Verbindung hergestellt!"}), 100 );
 	}
 	websocket.onclose = (event) => {
 		connected = false;
 		if(!event.wasClean)
 		{
+			onChat({username: "<i>SYSTEM</i>", message: "Verbindung verloren!"});
 			connect();
-			alert( "Verbindung verloren!\nWiederaufbau läuft..." );
 		}
 	}
 	websocket.onmessage = (event) => {

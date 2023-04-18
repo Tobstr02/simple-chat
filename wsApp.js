@@ -39,7 +39,7 @@ app.ws('/', function(ws, req) {
 		delete connections[req.id];
 	});
 	debug('New client');
-	setTimeout(() => ws.send(JSON.stringify({"event": "message", "username": "SYSTEM", message: "Willkommen!"})), 3000);
+	setTimeout(() => ws.send(JSON.stringify({"event": "message", "username": "<i>SYSTEM</i>", message: "Verbunden mit IRC#1"})), 500);
 });
 
 
