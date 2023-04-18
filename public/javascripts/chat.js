@@ -13,6 +13,11 @@ function onChat(data)
 	// todo Hier divs zur chatbox hinzufügen mit "Name: Message"
 }
 
+function sendChat(username, message)
+{
+
+}
+
 
 /**
  * Sobald sich ein active state eines users ändert
