@@ -13,7 +13,7 @@ h1 {
 #chat-box {
   border-style: solid;
   background-color: white;
-  bottom: 14%;
+  bottom: 19%;
   top: 10%;
   width: 90%;
   left: 5%;
@@ -39,7 +39,7 @@ h1 {
   height: 10%;
   left: 5%;
   position: absolute;
-  bottom: 2%;
+  bottom: 7%;
   font-size: 1.4em;
 }
 
@@ -48,7 +48,7 @@ h1 {
   position: absolute;
   width: 9%;
   height: 11%;
-  bottom: 2%;
+  bottom: 7%;
   right: 5%;
   font-size: 1.4em;
 }
@@ -59,4 +59,15 @@ h1 {
   margin-left: auto;
   margin-right: auto;
   margin-top: 10%;
+}
+
+#footer-div {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+  text-align: center;
+  font-size: 1.3em;
 }
