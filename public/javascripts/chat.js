@@ -20,7 +20,7 @@ let chatDiv = document.getElementById("chat-box");
 let chatTableDiv = document.getElementById("chat-table")
 /**
  * Sobald ein Chat hereinkommt
- * @param data {{message: string, username: username}}
+ * @param data {{message: string, username: string}}
  */
 function onChat(data) {
     let tr = document.createElement("tr");
