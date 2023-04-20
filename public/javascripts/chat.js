@@ -43,9 +43,10 @@ sendButton.addEventListener("click", () => {
 });
 
 eingabeBox.onkeyup = (event) => {
-    console.log(event.key)
+
     if(event.key.toLowerCase() === "enter" && !event.shiftKey)
     {
+        console.log(event.key)
         sendChat(name, eingabeBox.value);
         eingabeBox.value = "";
     }
@@ -58,7 +59,9 @@ eingabeBox.onkeyup = (event) => {
  * @param message {string}
  */
 function sendChat(username, message) {
-    websocket.send(JSON.stringify({event: "message", username: username, message: message}));
+    let data = {event: "message", username: username, message: message};
+    console.log("[WS] OUTGOING", data);
+    websocket.send(JSON.stringify(data));
 }
 
 

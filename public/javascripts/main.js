@@ -26,7 +26,7 @@ function connect()
 	websocket.onmessage = (event) => {
 		try {
 			let data = JSON.parse(event.data);
-			console.log("[WS] ", data);
+			console.log("[WS] INCOMING", data);
 			if(data.event === "status")
 			{
 				console.log("Incoming status from " + data.username );
