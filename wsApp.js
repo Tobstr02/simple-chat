@@ -33,11 +33,10 @@ app.ws('/', function(ws, req) {
 			}
 			if(data.event === "message")
 			{
-
 				for( let word of forbidden )
 				{
 					var regEx = new RegExp(word, "ig");
-					data.message = data.message.replaceAll(regEx, "*".repeat(word.length));
+					data["message"] = data["message"].toString().replaceAll(regEx, "*".repeat(word.length));
 				}
 			}
 
