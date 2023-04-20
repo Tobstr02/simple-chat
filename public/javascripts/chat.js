@@ -76,3 +76,14 @@ function onState(data) {
     }
     chatDiv.append(p);
 }
+
+
+/**
+ *
+ * @param username  {string}
+ * @param active    {boolean}
+ */
+function sendState( username, active )
+{
+
+}

@@ -96,6 +96,8 @@ function blank()
 document.body.onkeyup = (event) => {
 	if(event.key === "b")
 	{
+		if( document.activeElement.id === "eingabe" && !event.ctrlKey)
+			return;
 		blank();
 	}
 }
