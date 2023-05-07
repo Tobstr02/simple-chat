@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const expressWs = require('express-ws')(app);
-var debug = require('debug')('simple-chat:ws');
+const debug = require( "debug" )( "simple-chat:ws" );
 const uuid = require("uuid");
 const forbidden = require("./forbidden.json");
 
@@ -66,7 +66,7 @@ app.ws('/', function(ws, req) {
 	setTimeout(() => {
 		for(let msg of messages)
 			ws.send(JSON.stringify(msg));
-		ws.send(JSON.stringify({"event": "message", "username": "<i>SYSTEM</i>", message: "Verbunden mit IRC#1"}))
+		ws.send(JSON.stringify({"event": "message", "username": "<i>SYSTEM</i>", message: "Verbunden mit IRC#1\nUm den Chat zu verstecken Drücke 'b' irgendwo außerhalb der Nachrichten-Box"}))
 	}, 500);
 });
 
